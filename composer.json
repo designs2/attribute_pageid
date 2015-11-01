@@ -25,7 +25,7 @@
   ],
   "support": {
     "email": "mail@metamodel.me",
-    "issues": "https://github.com/MetaModels/attribute_pageid/issues",
+    "issues": "https://github.com/designs2/attribute_pageid/issues",
     "wiki": "http://de.contaowiki.org/MetaModels",
     "irc": "irc://irc.freenode.org/contao.mm",
     "source": "https://github.com/designs2/attribute_pageid"

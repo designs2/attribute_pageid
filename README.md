@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](http://img.shields.io/packagist/v/MetaModels/attribute_url.svg)](https://packagist.org/packages/MetaModels/attribute_url)
 [![Installations via composer per month](http://img.shields.io/packagist/dm/MetaModels/attribute_url.svg)](https://packagist.org/packages/MetaModels/attribute_url)
 
-URL
+Page Id
 ===
 
-The url attribute
+The page id attribute

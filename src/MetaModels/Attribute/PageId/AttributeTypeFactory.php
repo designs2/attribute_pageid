@@ -15,7 +15,7 @@
  * @filesource
  */
 
-namespace MetaModels\Attribute\Url;
+namespace MetaModels\Attribute\PageId;
 
 use MetaModels\Attribute\AbstractAttributeTypeFactory;
 
@@ -31,7 +31,7 @@ class AttributeTypeFactory extends AbstractAttributeTypeFactory
     {
         parent::__construct();
         $this->typeName  = 'url';
-        $this->typeIcon  = 'system/modules/metamodelsattribute_url/html/url.png';
-        $this->typeClass = 'MetaModels\Attribute\Url\Url';
+        $this->typeIcon  = 'system/modules/metamodelsattribute_pageid/html/pageid.png';
+        $this->typeClass = 'MetaModels\Attribute\PageId\PageId';
     }
 }

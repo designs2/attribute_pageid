@@ -1,0 +1,2 @@
+<?php $arrValues = deserialize($this->raw); ?>
+<span class="pageid<?php echo $this->additional_class; ?>"><a<?php echo ($this->settings->get('no_external_link')) ? '' : ' target="_blank"'; ?> href="<?php echo $this->replaceInsertTags('{{link_url::'.$arrValues[1].'}}'); ?>"><?php echo (!empty($arrValues[0])) ? $arrValues[0] : $this->replaceInsertTags('{{link_url::'.$arrValues[1].'}}'); ?></a></span>

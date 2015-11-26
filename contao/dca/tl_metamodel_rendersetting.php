@@ -22,13 +22,3 @@
  * Table tl_metamodel_rendersetting
  */
 
-$GLOBALS['TL_DCA']['tl_metamodel_rendersetting']['metapalettes']['pageid extends default'] = array
-(
-    '+advanced' => array('no_external_link'),
-);
-
-$GLOBALS['TL_DCA']['tl_metamodel_rendersetting']['fields']['no_external_link'] = array
-(
-    'label'     => &$GLOBALS['TL_LANG']['tl_metamodel_rendersetting']['no_external_link'],
-    'inputType' => 'checkbox',
-);

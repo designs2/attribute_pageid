@@ -30,7 +30,7 @@ class AttributeTypeFactory extends AbstractAttributeTypeFactory
     public function __construct()
     {
         parent::__construct();
-        $this->typeName  = 'url';
+        $this->typeName  = 'pageid';
         $this->typeIcon  = 'system/modules/metamodelsattribute_pageid/html/pageid.png';
         $this->typeClass = 'MetaModels\Attribute\PageId\PageId';
     }

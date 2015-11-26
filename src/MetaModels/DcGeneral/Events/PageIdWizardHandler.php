@@ -74,13 +74,14 @@ class PageIdWizardHandler
 
         $propName   = $event->getProperty()->getName();
         $model      = $event->getModel();
-        $inputId    = $propName . (!$this->metaModel->getAttribute($this->propertyName)->get('trim_title') ? '_1' : '');
+        $inputId    = $propName;
         $translator = $event->getEnvironment()->getTranslator();
 
         $this->addStylesheet('metamodelsattribute_pageid', 'system/modules/metamodelsattribute_pageid/html/style.css');
 
         if (version_compare(VERSION, '3.1', '>=')) {
-            $currentField = deserialize($model->getProperty($propName), true);
+
+            $currentField       = $model->getProperty($propName);
 
             /** @var GenerateHtmlEvent $imageEvent */
             $imageEvent = $event->getEnvironment()->getEventDispatcher()->dispatch(
@@ -94,27 +95,29 @@ class PageIdWizardHandler
 
             $event->getWidget()->wizard = ' <a href="contao/page.php?do=' . \Input::get('do') .
                 '&amp;table=' . $this->metaModel->getTableName() . '&amp;field=' . $inputId .
-                '&amp;value=' . $currentField[0] . '" title="' .
+                '&amp;value=' . $currentField  . '" title="' .
                 specialchars($translator->translate('pagepicker', 'MSC')) .
                 '" onclick="Backend.getScrollOffset();Backend.openModalSelector({\'width\':765,\'title\':\'' .
                 specialchars(str_replace("'", "\\'", $translator->translate('page.0', 'MOD'))) .
-                '\',\'url\':this.href,\'id\':\'' . $inputId . '\',\'tag\':\'ctrl_' . $inputId . '\',\'self\':this});' .
+                '\',\'url\':this.href,\'id\':\'' . $inputId . '\',\'tag\':\'ctrl_' . $inputId . '\',\'insTagStr\':\'\',\'self\':this});' .
                 'return false">' . $imageEvent->getHtml() . '</a>';
 
+            
+             //get the page model to get the current title and alias to set it to the category
+            // $pageModel = \PageModel::findById($currentField);
+
+            // $model->setProperty('name',$pageModel->title);
+            // $model->setProperty('alias',$pageModel->alias);
+            // $model->getItem()->save();  
+           // var_dump(get_class_methods($event)); 
+
             return;
+        }else{
+
+            throw new Exception("This Attribut requires Contao >= 3.1", 1);
+            
         }
-
-        /** @var GenerateHtmlEvent $imageEvent */
-        $imageEvent = $event->getEnvironment()->getEventDispatcher()->dispatch(
-            ContaoEvents::IMAGE_GET_HTML,
-            new GenerateHtmlEvent(
-                'pickpage.gif',
-                $translator->translate('pagepicker', 'MSC'),
-                'style="vertical-align:top;cursor:pointer" onclick="Backend.pickPage(\'ctrl_' . $inputId . '\')"'
-            )
-        );
-
-        $event->getWidget()->wizard = ' ' . $imageEvent->getHtml();
+       
     }
 
     /**

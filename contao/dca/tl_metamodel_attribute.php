@@ -23,14 +23,3 @@
  * Table tl_metamodel_attribute
  */
 
-$GLOBALS['TL_DCA']['tl_metamodel_attribute']['metapalettes']['pageid extends _simpleattribute_'] = array
-(
-    '+display' => array('trim_title')
-);
-
-$GLOBALS['TL_DCA']['tl_metamodel_attribute']['fields']['trim_title'] = array(
-    'label'     => &$GLOBALS['TL_LANG']['tl_metamodel_attribute']['trim_title'],
-    'exclude'   => true,
-    'inputType' => 'checkbox',
-    'eval'      => array('tl_class' => 'clr')
-);
